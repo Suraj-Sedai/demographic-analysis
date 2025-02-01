@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 # Get the absolute path of the data folder
 script_dir = os.path.dirname(__file__)  # Get current script directory
-data_path = os.path.join(script_dir, '../data/sample_data.csv')  # Construct absolute path
+data_path = os.path.join(script_dir, '../data/enhanced_sample_data.csv')  # Construct absolute path
 
 # Check if the CSV file exists
 if not os.path.exists(data_path):
