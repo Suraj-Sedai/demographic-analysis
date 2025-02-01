@@ -23,6 +23,21 @@ class DataVisualizer:
 
         # Show the pie chart
         plt.show()
+    
+    def bar_chart(self):
+        df = self.load_data()
+        # Group by age group and count occurrences
+        age_group_counts = df['Age Group'].value_counts().sort_index()
+
+        # Create a bar chart
+        plt.figure(figsize=(8, 6))
+        plt.bar(age_group_counts.index, age_group_counts.values, color='skyblue')
+        plt.xlabel('Age Group')
+        plt.ylabel('Count')
+        plt.title('Age Group Distribution')
+
+        # Show the bar chart
+        plt.show()
 
 if __name__ == '__main__':
     # Get the absolute path of the data folder
@@ -37,3 +52,4 @@ if __name__ == '__main__':
 
     # Count occurrences
     visualizer.pie_chart()
+    visualizer.bar_chart()
