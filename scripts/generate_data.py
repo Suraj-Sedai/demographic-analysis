@@ -10,7 +10,6 @@ class DataGenerator:
         os.makedirs(self.data_dir, exist_ok=True)  # Ensure the 'data' directory exists
 
     def generate_data(self):
-
         # Generate unique IDs from 1 to 50
         ids = np.arange(1, self.num_records + 1)
 
@@ -46,8 +45,7 @@ class DataGenerator:
             'Education Level': education_levels
         })
         return data
-
-
+    
     @staticmethod
     # Age group classification
     def classify_age_group(age):
@@ -62,7 +60,6 @@ class DataGenerator:
         else:
             return '56+'
 
-
     def save_data(self, df, filename='sample_data.csv'):
         csv_path = os.path.join(self.data_dir, filename)
         df.to_csv(csv_path, index=False)
@@ -73,4 +70,3 @@ if __name__ == "__main__":
     generator = DataGenerator()
     data = generator.generate_data()
     generator.save_data(data)
-
