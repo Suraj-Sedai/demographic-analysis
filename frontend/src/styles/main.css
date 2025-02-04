@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+  nav {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .dashboard-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Button styles for tabs */
+  .chart-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .chart-tabs button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .chart-tabs button:hover {
+    background-color: #0056b3;
+  }
+  
+  .chart-tabs button.active {
+    background-color: #0056b3;
+  }
+  
+  .chart-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .chart-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-align: center;
+  }
+  
