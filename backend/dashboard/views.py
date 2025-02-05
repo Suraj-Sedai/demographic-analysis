@@ -3,13 +3,9 @@ from rest_framework.decorators import api_view
 import os
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-from io import BytesIO
-import base64
 
 DATA_PATH = os.path.join(os.path.dirname(__file__), '../../data/sample_data.csv')
 
-# Data Generator
 @api_view(['GET'])
 def generate_data(request):
     np.random.seed(42)
@@ -34,7 +30,6 @@ def generate_data(request):
     data.to_csv(DATA_PATH, index=False)
     return Response({"message": "Data generated successfully!"})
 
-# Data Analyzer
 @api_view(['GET'])
 def analyze_data(request):
     if not os.path.exists(DATA_PATH):
@@ -51,26 +46,3 @@ def analyze_data(request):
         "gender_counts": df['Gender'].value_counts().to_dict()
     }
     return Response(analysis)
-
-# Data Visualization
-@api_view(['GET'])
-def visualize_data(request):
-    if not os.path.exists(DATA_PATH):
-        return Response({"error": "Data file not found. Please generate data first."})
-
-    df = pd.read_csv(DATA_PATH)
-    gender_counts = df['Gender'].value_counts()
-
-    plt.figure(figsize=(6, 6))
-    plt.pie(gender_counts, labels=gender_counts.index, autopct='%1.1f%%')
-    plt.title('Gender Distribution')
-
-    buffer = BytesIO()
-    plt.savefig(buffer, format='png')
-    buffer.seek(0)
-    image_png = buffer.getvalue()
-    buffer.close()
-
-    image_base64 = base64.b64encode(image_png).decode('utf-8')
-
-    return Response({"image": image_base64})

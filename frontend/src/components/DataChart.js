@@ -2,9 +2,14 @@ import React from 'react';
 import { Bar, Pie } from 'react-chartjs-2';
 import { Chart, ArcElement, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
 
+// Register Chart.js modules
 Chart.register(ArcElement, BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const DataChart = ({ title, labels, data }) => {
+  if (!labels.length || !data.length) {
+    return <p>No data available for {title}.</p>;
+  }
+
   const chartData = {
     labels,
     datasets: [
@@ -24,4 +29,4 @@ const DataChart = ({ title, labels, data }) => {
   );
 };
 
-export default DataChart;
+export default DataChart;  // ✅ Ensure this line exists

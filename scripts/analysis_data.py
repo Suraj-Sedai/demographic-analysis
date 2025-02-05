@@ -58,4 +58,4 @@ if __name__ == '__main__':
     print(f"\nOccupation Counts:\n{analyzer.analyze_occupation()}")
     print(f"\nLocation Counts:\n{analyzer.analyze_location()}")
     print(f"\nEducation Level Counts:\n{analyzer.analyze_education_level()}")
-    print(f"\nAge Group Counts:\n{analyzer.analyze_age_group()}")
+    #print(f"\nAge Group Counts:\n{analyzer.analyze_age_group()}")
